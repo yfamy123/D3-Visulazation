@@ -1,0 +1,265 @@
+{
+  "name": "EMR table",
+  "children": [
+    {
+      "name": "Jobflow",
+      "children": [
+        {
+          "name": "domainRealmUpdateRecord",
+          "children": [
+            {
+              "name": "domain",
+              "size": 3938
+            },
+            {
+              "name": "realm",
+              "size": 3812
+            },
+            {
+              "name": "lastModified",
+              "size": 6714
+            }
+          ]
+        },
+        {
+          "name": "jobFlowId",
+          "size": 16540
+        },
+        {
+          "name": "customerId",
+          "size": 16540
+        },
+        {
+          "name": "awsPayerToken",
+          "size": 16540
+        },
+        {
+          "name": "accountId",
+          "size": 16540
+        },
+        {
+          "name": "name",
+          "size": 16540
+        },
+        {
+          "name": "masterAdditionalInfo",
+          "size": 16540
+        },
+        {
+          "name": "availabilityZone",
+          "size": 16540
+        },
+        {
+          "name": "creationDateTime",
+          "size": 16540
+        },
+        {
+          "name": "state",
+          "size": 16540
+        },
+        {
+          "name": "stayAliveWithNoSteps",
+          "size": 16540
+        },
+        {
+          "name": "terminationProtectionRequestedByUser",
+          "size": 16540
+        },
+        {
+          "name": "terminationProtectionOnCluster",
+          "size": 16540
+        },
+        {
+          "name": "visibleToAllUsers",
+          "size": 16540
+        },
+        {
+          "name": "hadoopVersion",
+          "size": 16540
+        },
+        {
+          "name": "dataModelVersion",
+          "size": 16540
+        },
+        {
+          "name": "amiIds",
+          "size": 16540
+        },
+        {
+          "name": "isDebuggingEnabled",
+          "size": 16540
+        },
+        {
+          "name": "isApplicationHAEnabled",
+          "size": 16540
+        },
+        {
+          "name": "isDebuggingStartSignaled",
+          "size": 16540
+        },
+        {
+          "name": "isDebuggingStopSignaled",
+          "size": 16540
+        },
+        {
+          "name": "normalizedInstanceHours",
+          "size": 16540
+        },
+        {
+          "name": "releaseLabel",
+          "size": 16540
+        },
+        {
+          "name": "enableWhisper",
+          "size": 16540
+        },
+        {
+          "name": "configurationsString",
+          "size": 16540
+        },
+        {
+          "name": "applicationsString",
+          "size": 16540
+        },
+        {
+          "name": "userAgent",
+          "size": 16540
+        },
+        {
+          "name": "instanceGroups",
+          "children": [
+            {
+              "name": "indexName",
+              "size": 3938
+            },
+            {
+              "name": "queryCriteria",
+              "size": 3812
+            }
+          ]
+        },
+        {
+          "name": "instanceFleets",
+          "children": [
+            {
+              "name": "indexName",
+              "size": 3938
+            },
+            {
+              "name": "queryCriteria",
+              "size": 3812
+            }
+          ]
+        },
+        {
+          "name": "managedByCcs",
+          "size": 16540
+        },
+        {
+          "name": "provisionedByCcs",
+          "size": 16540
+        },
+        {
+          "name": "ccsClusterId",
+          "size": 16540
+        },
+        {
+          "name": "ccsClusterHeartbeatToken",
+          "size": 16540
+        },
+        {
+          "name": "ccsClusterState",
+          "size": 16540
+        },
+        {
+          "name": "ccsClusterStateMessage",
+          "size": 16540
+        },
+        {
+          "name": "ccsClusterStateMessageCode",
+          "size": 16540
+        },
+        {
+          "name": "useInstancesData",
+          "size": 16540
+        },
+        {
+          "name": "useStepGrouping",
+          "size": 16540
+        },
+        {
+          "name": "containsBootStrapActions",
+          "size": 16540
+        },
+        {
+          "name": "signedPolicyEffectiveEndInstant",
+          "size": 16540
+        },
+        {
+          "name": "ec2SubnetId",
+          "size": 16540
+        },
+        {
+          "name": "requestedEc2SubnetIdsString",
+          "size": 16540
+        },
+        {
+          "name": "ec2SubnetCidr",
+          "size": 16540
+        },
+        {
+          "name": "ec2VpcId",
+          "size": 16540
+        },
+        {
+          "name": "instanceProfile",
+          "size": 16540
+        },
+        {
+          "name": "serviceRole",
+          "size": 16540
+        },
+        {
+          "name": "scaleDownBehavior",
+          "size": 16540
+        },
+        {
+          "name": "securityGroupsConfiguration",
+          "size": 16540
+        },
+        {
+          "name": "isSubnetPrivate",
+          "size": 16540
+        },
+        {
+          "name": "candidateSequence",
+          "size": 16540
+        },
+        {
+          "name": "stepStatus",
+          "children": [
+            {
+              "name": "nextStepId",
+              "size": 3938
+            },
+            {
+              "name": "stepCount",
+              "size": 3812
+            },
+            {
+              "name": "activeStepCount",
+              "size": 3812
+            },
+            {
+              "name": "stepArgSize",
+              "size": 3812
+            }
+          ]
+        }
+      ]
+    },{
+      "name": "JobFlowInstanceGroup"
+    }
+  ]
+}
+

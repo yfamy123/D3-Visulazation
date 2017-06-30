@@ -1,0 +1,17 @@
+SELECT *
+FROM JobFlow
+WHERE domainrealmupdaterecord.realm = 'us-east-1'
+        AND domainrealmupdaterecord.domain = 'preprod'
+        AND accountid != '775662475665'
+        AND accountid != '389923639394'
+        AND state = 'ENDED'
+        AND startDateTime is NOT null
+        AND from_iso8601_timestamp(creationDateTime) > from_iso8601_timestamp('beginTime')
+        AND date_diff('second',from_iso8601_timestamp(creationDateTime), from_iso8601_timestamp(startDateTime)) > 400
+        AND uniquekey.hashkey NOT IN
+    (SELECT DISTINCT jobflow.reference.hashkey
+    FROM jobflowinstancegroup
+    WHERE marketType = 'SPOT')
+        AND uniquekey.hashkey NOT IN
+    (SELECT DISTINCT jobflow.reference.hashkey
+    FROM JobFlowBootstrapAction)

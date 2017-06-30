@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<!--<title>Crossfilter</title>-->
+
+<link rel="stylesheet" type="text/css" href="../visul-example/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="../visul-example/css/dc.css"/>
+
+<!--<link rel="stylesheet" type="text/css" href="http://localhost:3000/visul-example/css/bootstrap.min.css">-->
+<!--<link rel="stylesheet" type="text/css" href="http://localhost:3000/visul-example/css/dc.css"/>-->
+
+<style>
+
+    /*@import url(http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:400,700);*/
+
+    body {
+        font-family: "Helvetica Neue";
+        margin: 40px auto;
+        width: 960px;
+        min-height: 2000px;
+    }
+
+    #body {
+        position: relative;
+    }
+
+    footer {
+        padding: 2em 0 1em 0;
+        font-size: 12px;
+    }
+
+    h1 {
+        font-size: 96px;
+        margin-top: .3em;
+        margin-bottom: 0;
+    }
+
+    h1 + h2 {
+        margin-top: 0;
+    }
+
+    h2 {
+        font-weight: 400;
+        font-size: 28px;
+    }
+
+    h1, h2 {
+        font-family: "Yanone Kaffeesatz";
+        text-rendering: optimizeLegibility;
+    }
+
+    #body > p {
+        line-height: 1.5em;
+        width: 640px;
+        text-rendering: optimizeLegibility;
+    }
+
+
+    #charts {
+        padding: 10px 0;
+    }
+
+    .chart {
+        display: inline-block;
+        height: 151px;
+        margin-bottom: 20px;
+    }
+
+    .reset {
+        padding-left: 1em;
+        font-size: smaller;
+        color: #ccc;
+    }
+
+    .background.bar {
+        fill: #ccc;
+    }
+
+    .foreground.bar {
+        fill: steelblue;
+    }
+
+
+
+
+    aside {
+        position: absolute;
+        left: 740px;
+        font-size: smaller;
+        width: 220px;
+    }
+
+</style>
+
+<div id="body">
+
+    <div class="row">
+        <div id="state-chart">
+            <strong>State</strong>
+            <a class="reset" href="javascript:stateChart.filterAll();dc.redrawAll();" style="display: none;">reset</a>
+            <div class="clearfix"></div>
+        </div>
+
+        <div id="eventType-chart">
+            <strong>isSubnetPrivate</strong>
+            <a class="reset" href="javascript:subnetChart.filterAll();dc.redrawAll();" style="display: none;">reset</a>
+            <div class="clearfix">
+            </div>
+        </div>
+
+        <div id="serviceRole-chart">
+            <strong>serviceRole</strong>
+            <a class="reset" href="javascript:serviceRoleChart.filterAll();dc.redrawAll();" style="display: none;">reset</a>
+            <div class="clearfix">
+            </div>
+        </div>
+    </div>
+
+    <div class = "row">
+        <div id="fluctuation-chart">
+            <strong>Count by time</strong>
+            <span class="reset" style="display: none;">range: <span class="filter"></span></span>
+            <a class="reset" href="javascript:fluctuationChart.filterAll();dc.redrawAll();" style="display: none;">reset</a>
+            <div class="clearfix"></div>
+        </div>
+
+    </div>
+
+
+    <div class = "row">
+        <div>
+            <div class="dc-data-count">
+                <span class="filter-count"></span> selected out of <span class="total-count"></span> records | <a
+                    href="javascript:dc.filterAll(); dc.renderAll();">Reset All</a>
+            </div>
+        </div>
+
+        <table class="table table-hover dc-data-table">
+        </table>
+    </div>
+
+
+
+</div>
+
+<script src="../visul/d3.v3.min.js"></script>
+<script src="../visul/crossfilter.v1.min.js"></script>
+<script src="../visul-example/js/dc.js"></script>
+<script src="../visul-example/js/colorbrewer.js"></script>
+<script src="testD3.js"></script>
+
+<!--<script src="http://localhost:3000/visul/d3.v3.min.js"></script>-->
+<!--<script src="http://localhost:3000/visul/crossfilter.v1.min.js"></script>-->
+<!--<script src="http://localhost:3000/visul-example/js/dc.js"></script>-->
+<!--<script src="http://localhost:3000/visul-example/js/colorbrewer.js"></script>-->
+<!--<script src="http://localhost:3000/test/testD3.js"></script>-->
+

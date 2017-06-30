@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+    <meta charset="utf-8">
+    <style type="text/css">
+
+        .node {
+            cursor: pointer;
+        }
+
+        .overlay{
+            background-color: #ffffff;
+            width: 1200px;
+        }
+
+        .node circle {
+            fill: #fff;
+            stroke: steelblue;
+            stroke-width: 1.5px;
+        }
+
+        .node text {
+            font-size:10px;
+            font-family:sans-serif;
+        }
+
+        .link {
+            fill: none;
+            stroke: #cccccc;
+            stroke-width: 1.5px;
+        }
+
+        .templink {
+            fill: none;
+            stroke: red;
+            stroke-width: 3px;
+        }
+
+        .ghostCircle.show{
+            display:block;
+        }
+
+        .ghostCircle, .activeDrag .ghostCircle{
+            display: none;
+        }
+
+
+
+
+    </style>
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="http://d3js.org/d3.v3.min.js"></script>
+    <script src="https://sdk.amazonaws.com/js/aws-sdk-2.7.20.min.js"></script>
+    <script src="./dndTree.js"></script>
+
+
+    <body>
+        <h1>EMR table</h1>
+        <object data="http://localhost:3000/log/updateTime.txt" type="text/plain"
+                width="700" style="height: 20px">
+            <a href="http://localhost:3000/log/updateTime.txt">Not find?</a>
+        </object>
+        <form action = "http://localhost:3000/action" method = "GET">
+            Table Name :  <select type = "text" name = "table">
+                            <option value="jobflow">JobFlow</option>
+                            <option value="tagevent">TagEvent</option>
+                        </select>
+            Begin Time : <input type="time" name="beginTime" value="2017-06-28">
+            End Time : <input type="time" name="endTime" value="2017-06-30">
+            JobFlowId : <input type="text" name="jobflowid" value="0000000000000">
+            <br />
+            <input name = "action" type = "submit" value = "Refresh">
+            <input name = "action" type = "submit" value = "Visualization">
+            <!--<input name = "action" type = "submit" value = "ClusterStatus">-->
+            <input name = "action" type = "submit" value = "Search">
+        </form>
+
+
+        <div id="tree-container"></div>
+    </body>
+</html>
