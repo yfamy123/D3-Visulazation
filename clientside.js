@@ -25,7 +25,7 @@ app.use(filename);
 
 app.get('/action', function (req,res) {
     switch (req.param('action')){
-        case "Refresh":
+        case "Update":
             res.redirect('query/query?table=' + req.param('table') +'&beginTime='+ req.param('beginTime') +'&endTime=' + req.param('endTime'));
             break;
         case "Visualization":

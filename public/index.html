@@ -1,5 +1,8 @@
 <!DOCTYPE html>
     <meta charset="utf-8">
+    <head>
+        <title>EMR Table</title>
+    </head>
     <style type="text/css">
 
         .node {
@@ -42,6 +45,42 @@
             display: none;
         }
 
+        #mySidenav a {
+            position: absolute; /* Position them relative to the browser window */
+            left: -80px; /* Position them outside of the screen */
+            transition: 0.3s; /* Add transition on hover */
+            padding: 15px; /* 15px padding */
+            width: 100px; /* Set a specific width */
+            text-decoration: none; /* Remove underline */
+            font-size: 20px; /* Increase font size */
+            color: white; /* White text color */
+            border-radius: 0 5px 5px 0; /* Rounded corners on the top right and bottom right side */
+        }
+
+        #mySidenav a:hover {
+            left: 0; /* On mouse-over, make the elements appear as they should */
+        }
+
+        /* The about link: 20px from the top with a green background */
+        #Visualization {
+            top: 20px;
+            background-color: #a9af68;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        form {
+            margin: 0 auto;
+            width:1000px;
+        }
+
+        object {
+            position: relative;
+            left: 250px;
+        }
+
 
 
 
@@ -51,11 +90,27 @@
     <script src="https://sdk.amazonaws.com/js/aws-sdk-2.7.20.min.js"></script>
     <script src="./dndTree.js"></script>
 
+    <script language="JavaScript">
+        $(document).ready( function() {
+            var now = new Date();
+            var day = ("0" + now.getDate()).slice(-2);
+            var month = ("0" + (now.getMonth() + 1)).slice(-2);
+            var hour = ("0" + now.getHours()).slice(-2);
+            var mins = ("0" + (now.getMinutes() + 1)).slice(-2);
+            var today = now.getFullYear()+"-"+(month)+"-"+(day) + " " + (hour) + ":"+ (mins);
+            var yesterday = now.getFullYear()+"-"+(month)+"-"+(day-1) + " " + (hour) + ":"+ (mins);
+
+            $('#beginTime').val(yesterday);
+            $('#endTime').val(today);
+        });
+
+    </script>
+
 
     <body>
         <h1>EMR table</h1>
         <object data="http://localhost:3000/log/updateTime.txt" type="text/plain"
-                width="700" style="height: 20px">
+                width="1000" style="height: 30px">
             <a href="http://localhost:3000/log/updateTime.txt">Not find?</a>
         </object>
         <form action = "http://localhost:3000/action" method = "GET">
@@ -63,15 +118,19 @@
                             <option value="jobflow">JobFlow</option>
                             <option value="tagevent">TagEvent</option>
                         </select>
-            Begin Time : <input type="time" name="beginTime" value="2017-06-28">
-            End Time : <input type="time" name="endTime" value="2017-06-30">
+            Begin Time : <input id="beginTime" type="time" name="beginTime">
+            End Time : <input id="endTime" type="time" name="endTime">
             JobFlowId : <input type="text" name="jobflowid" value="0000000000000">
-            <br />
-            <input name = "action" type = "submit" value = "Refresh">
-            <input name = "action" type = "submit" value = "Visualization">
+            <!--<br />-->
+            <input name = "action" type = "submit" value = "Update">
+            <!--<input name = "action" type = "submit" value = "Visualization">-->
             <!--<input name = "action" type = "submit" value = "ClusterStatus">-->
             <input name = "action" type = "submit" value = "Search">
         </form>
+
+        <div id="mySidenav" class="sidenav">
+            <a href="http://localhost:3000/test/test.html" id="Visualization">Visualization</a>
+        </div>
 
 
         <div id="tree-container"></div>
