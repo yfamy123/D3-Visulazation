@@ -19,7 +19,7 @@ d3.csv("Data.csv", function(err, data) {
         formatChange = d3.format("+,d"),
         formatDate = d3.time.format("%Y-%m-%d"),
         formatTime = d3.time.format("%H:%M:%S"),
-        formatDay= d3.time.format("%e");
+        formatHour= d3.time.format("%H");
 
     var nestByDate = d3.nest()
         .key(function(d) { return d3.time.day(d.startdatetime); });
@@ -53,7 +53,7 @@ d3.csv("Data.csv", function(err, data) {
         scheduledDate = tagEvents.dimension(function(d) { return d.scheduledstarttime; }),
 
         modifyDate = tagEvents.dimension(function(d) { return d.lastmodifydate; }),
-        modifyDay = modifyDate.group(d3.time.day),
+        modifyDay = modifyDate.group(d3.time.hour),
 
         createMonth = tagEvents.dimension(function(d) { return d.month; }),
         volumeByMonthGroup = createMonth.group(),
@@ -224,16 +224,17 @@ d3.csv("Data.csv", function(err, data) {
         // (_optional_) set gap between bars manually in px, `default=2`
         .gap(1)
         // (_optional_) set filter brush rounding
-        .round(d3.time.day.round)
+        .round(d3.time.hour.round)
         .alwaysUseRounding(true)
         .renderHorizontalGridLines(true)
         .xUnits(function () {return 20})
         .x(d3.time.scale()
-            .domain([new Date().setMonth(new Date().getMonth()-1), Date.now()]));
+            .domain([new Date().setDate(new Date().getDate()-1), Date.now()]));
+            // .domain([new Date().setMonth(new Date().getMonth()-1), Date.now()]));
 
     // Customize axes
     fluctuationChart.xAxis().tickFormat(
-        function (d) { return formatDay(d); }).ticks(10);
+        function (d) { return formatHour(d); }).ticks(10);
     fluctuationChart.yAxis().ticks(5);
 
 
