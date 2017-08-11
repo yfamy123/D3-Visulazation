@@ -19,7 +19,8 @@ d3.csv("Data.csv", function(err, data) {
         formatChange = d3.format("+,d"),
         formatDate = d3.time.format("%Y-%m-%d"),
         formatTime = d3.time.format("%H:%M:%S"),
-        formatHour= d3.time.format("%H");
+        formatHour= d3.time.format("%H"),
+        formatDay= d3.time.format("%d");
 
     var nestByDate = d3.nest()
         .key(function(d) { return d3.time.day(d.startdatetime); });
@@ -229,12 +230,12 @@ d3.csv("Data.csv", function(err, data) {
         .renderHorizontalGridLines(true)
         .xUnits(function () {return 20})
         .x(d3.time.scale()
-            .domain([new Date().setDate(new Date().getDate()-1), Date.now()]));
+            .domain([new Date().setDate(new Date().getDate()-5), Date.now()]));
             // .domain([new Date().setMonth(new Date().getMonth()-1), Date.now()]));
 
     // Customize axes
     fluctuationChart.xAxis().tickFormat(
-        function (d) { return formatHour(d); }).ticks(10);
+        function (d) { return formatDay(d) + "d" + formatHour(d); }).ticks(10);
     fluctuationChart.yAxis().ticks(5);
 
 

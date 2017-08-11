@@ -202,3 +202,14 @@ module.exports = function() {
     }
 }
 
+var schedule = require('node-schedule');
+
+var rule = new schedule.RecurrenceRule();
+rule.hour = new schedule.Range(0, 24, 6);
+
+var j = schedule.scheduleJob(rule, function(){
+    console.log("time out")
+    wholeProcess("MSCK REPAIR TABLE jobflow", function () {
+        console.log("update")
+    })
+});

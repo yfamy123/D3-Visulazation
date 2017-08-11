@@ -44,9 +44,6 @@ app.get('/action', function (req,res) {
 app.get('/query/query',click());
 app.get('/cluster/cluster',loadQuery())
 
-
-
-
 var server = app.listen(3000, function () {
     var port = server.address().port
 

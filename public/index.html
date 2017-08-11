@@ -98,7 +98,7 @@
             var hour = ("0" + now.getHours()).slice(-2);
             var mins = ("0" + (now.getMinutes() + 1)).slice(-2);
             var today = now.getFullYear()+"-"+(month)+"-"+(day) + " " + (hour) + ":"+ (mins);
-            var yesterday = now.getFullYear()+"-"+(month)+"-"+(day-1) + " " + (hour) + ":"+ (mins);
+            var yesterday = now.getFullYear()+"-"+(month)+"-"+(day-01) + " " + (hour) + ":"+ (mins);
 
             $('#beginTime').val(yesterday);
             $('#endTime').val(today);
